@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapeways API — 3D Printing | ForgeAPI.io</title>
+    <meta name="description" content="Shapeways offers the leading 3D printing API with 60+ materials. Best for detailed figurines, full-color sandstone, and consumer products. API Status: Public.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Plausible Analytics -->
+    <script defer data-domain="forgeapi.io" src="https://plausible.io/js/script.outbound-links.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+            </a>
+            <p class="tagline">The API Directory for On-Demand Manufacturing</p>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Directory</a>
+                <a href="submit.html" class="nav-link">Submit</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Directory</a>
+            <span class="breadcrumb-separator">→</span>
+            <a href="index.html" onclick="localStorage.setItem('filter', '3d-printing');">3D Printing</a>
+            <span class="breadcrumb-separator">→</span>
+            <span class="breadcrumb-current">Shapeways</span>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="manufacturer-hero">
+        <div class="container">
+            <div class="manufacturer-header">
+                <div class="manufacturer-logo-large" style="background: linear-gradient(135deg, #00d4aa 0%, #00a884 100%);">S</div>
+                <div class="manufacturer-title">
+                    <h1>Shapeways</h1>
+                    <div class="manufacturer-badges">
+                        <span class="badge badge-process">3D Printing</span>
+                        <span class="badge badge-process">Multi-Process</span>
+                    </div>
+                </div>
+                <div class="manufacturer-rating">
+                    <span class="stars-large">⭐⭐⭐⭐⭐</span>
+                    <span class="rating-text">API Maturity 5/5</span>
+                </div>
+            </div>
+
+            <p class="manufacturer-tagline">The leading 3D printing service with 60+ materials. Best for detailed figurines, full-color sandstone prints, jewelry, and consumer products.</p>
+
+            <div class="manufacturer-quick-links">
+                <button class="btn btn-secondary" onclick="trackAndOpen('shapeways', 'website', 'https://www.shapeways.com')">🌐 Website</button>
+                <button class="btn btn-secondary" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com')">📖 API Docs</button>
+                <button class="btn btn-primary" onclick="trackAndOpen('shapeways', 'get_api_key', 'https://www.shapeways.com/developers')">🔑 Get API Key</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="manufacturer-grid-layout">
+            
+            <!-- Left Column -->
+            <div class="manufacturer-main">
+                
+                <!-- About -->
+                <section class="manufacturer-section">
+                    <h2>About</h2>
+                    <p>Shapeways is the leading on-demand 3D printing service, founded in 2007 and headquartered in New York City. With over 60 materials ranging from standard plastics to precious metals, Shapeways serves creators, businesses, and enterprises worldwide.</p>
+                    <p>The Shapeways API enables developers to integrate 3D printing capabilities directly into their applications. Whether you're building a custom product configurator, a print-on-demand store, or an automated prototyping pipeline, the Shapeways API provides full access to their manufacturing network.</p>
+                    <p>Particularly well-suited for detailed figurines, jewelry, miniatures, and full-color consumer products thanks to their extensive material library and high-quality production standards.</p>
+                </section>
+
+                <!-- API Capabilities -->
+                <section class="manufacturer-section">
+                    <h2>API Capabilities</h2>
+                    <ul class="capabilities-list">
+                        <li><span class="capability-icon">✓</span> 3D model upload and validation (STL, OBJ, 3MF, DAE, X3D)</li>
+                        <li><span class="capability-icon">✓</span> Instant quoting based on material, volume, and geometry</li>
+                        <li><span class="capability-icon">✓</span> Order placement and lifecycle management</li>
+                        <li><span class="capability-icon">✓</span> Material and finish selection programmatically</li>
+                        <li><span class="capability-icon">✓</span> Shipping management and tracking</li>
+                        <li><span class="capability-icon">✓</span> Webhook support for status updates</li>
+                        <li><span class="capability-icon">✓</span> White-label shipping options</li>
+                        <li><span class="capability-icon">✓</span> OAuth 2.0 authentication</li>
+                    </ul>
+                </section>
+
+                <!-- Materials -->
+                <section class="manufacturer-section">
+                    <h2>Supported Materials</h2>
+                    <div class="materials-grid">
+                        <div class="material-category">
+                            <h4>Plastics</h4>
+                            <ul>
+                                <li>Strong & Flexible Plastic (Nylon 12)</li>
+                                <li>Fine Detail Plastic (Resin)</li>
+                                <li>Multi-Color Polyjet</li>
+                                <li>High-Definition Acrylate</li>
+                                <li>PLA, ABS, PETG</li>
+                            </ul>
+                        </div>
+                        <div class="material-category">
+                            <h4>Metals</h4>
+                            <ul>
+                                <li>Steel (Raw & Polished)</li>
+                                <li>Bronze, Brass, Copper</li>
+                                <li>Silver (Sterling & Fine)</li>
+                                <li>Gold (14K & 18K)</li>
+                                <li>Platinum</li>
+                            </ul>
+                        </div>
+                        <div class="material-category">
+                            <h4>Special Materials</h4>
+                            <ul>
+                                <li>Full-Color Sandstone</li>
+                                <li>Porcelain & Ceramic</li>
+                                <li>Wax Casting</li>
+                                <li>Alumide (Nylon + Aluminum)</li>
+                                <li>Flexible TPU</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Code Example -->
+                <section class="manufacturer-section">
+                    <h2>Quick Start Example</h2>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-lang">JavaScript</span>
+                            <button class="code-copy" onclick="copyCode(this)">Copy</button>
+                        </div>
+                        <pre><code>// Initialize Shapeways client
+const shapeways = require('shapeways-api');
+
+const client = new shapeways.Client({
+  consumerKey: 'YOUR_CONSUMER_KEY',
+  consumerSecret: 'YOUR_CONSUMER_SECRET',
+  oauthToken: 'YOUR_OAUTH_TOKEN',
+  oauthSecret: 'YOUR_OAUTH_SECRET'
+});
+
+// Upload a model
+const model = await client.uploadModel({
+  file: './model.stl',
+  title: 'Custom Figurine',
+  description: 'Wedding cake topper'
+});
+
+// Get instant quote
+const quote = await client.getQuote({
+  modelId: model.modelId,
+  materialId: '6c38f9d4-5a1e-4e2b-8c3d-9f4e5d6c7b8a' // Full Color Sandstone
+});
+
+console.log(`Price: $${quote.price}`);
+console.log(`Lead time: ${quote.leadTime} days`);</code></pre>
+                    </div>
+                </section>
+
+                <!-- Use Cases -->
+                <section class="manufacturer-section">
+                    <h2>Best For</h2>
+                    <div class="use-cases">
+                        <div class="use-case-item">
+                            <span class="use-case-icon">👰</span>
+                            <div>
+                                <h4>Wedding Cake Toppers</h4>
+                                <p>Full-color sandstone prints with photo-realistic detail</p>
+                            </div>
+                        </div>
+                        <div class="use-case-item">
+                            <span class="use-case-icon">🎲</span>
+                            <div>
+                                <h4>Tabletop Miniatures</h4>
+                                <p>Detailed figurines for gaming and collectibles</p>
+                            </div>
+                        </div>
+                        <div class="use-case-item">
+                            <span class="use-case-icon">💍</span>
+                            <div>
+                                <h4>Custom Jewelry</h4>
+                                <p>Precious metals casting and direct printing</p>
+                            </div>
+                        </div>
+                        <div class="use-case-item">
+                            <span class="use-case-icon">🎨</span>
+                            <div>
+                                <h4>Consumer Products</h4>
+                                <p>Prototypes and small-batch production</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- Right Column -->
+            <aside class="manufacturer-sidebar">
+                
+                <!-- API Status Card -->
+                <div class="sidebar-card">
+                    <h3>API Status</h3>
+                    <div class="status-item">
+                        <span class="status-indicator status-public"></span>
+                        <span>Public API Available</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">📖</span>
+                        <span>Full Documentation</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">💰</span>
+                        <span>Free to Use</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">🔗</span>
+                        <span>Webhooks Supported</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-icon">🧪</span>
+                        <span>Sandbox Available</span>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="sidebar-card">
+                    <h3>Quick Stats</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">📍 Headquarters</span>
+                        <span class="stat-value">New York, USA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">🏭 Materials</span>
+                        <span class="stat-value">60+</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">🚀 Founded</span>
+                        <span class="stat-value">2007</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">🌐 Shipping</span>
+                        <span class="stat-value">Global</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">⏱️ Lead Time</span>
+                        <span class="stat-value">2-3 weeks</span>
+                    </div>
+                </div>
+
+                <!-- Pricing -->
+                <div class="sidebar-card">
+                    <h3>Pricing Model</h3>
+                    <p class="pricing-description">Production cost + margin. API is free to use—no per-request fees.</p>
+                    <div class="pricing-note">
+                        <span class="pricing-icon">ℹ️</span>
+                        <span>You set your own retail price above manufacturing cost.</span>
+                    </div>
+                </div>
+
+                <!-- Documentation Links -->
+                <div class="sidebar-card">
+                    <h3>Documentation</h3>
+                    <ul class="doc-links">
+                        <li><a href="https://developers.shapeways.com" target="_blank" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com'); return false;">API Reference →</a></li>
+                        <li><a href="https://developers.shapeways.com/getting-started" target="_blank" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com/getting-started'); return false;">Getting Started →</a></li>
+                        <li><a href="https://developers.shapeways.com/authentication" target="_blank" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com/authentication'); return false;">Authentication →</a></li>
+                        <li><a href="https://developers.shapeways.com/webhooks" target="_blank" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com/webhooks'); return false;">Webhooks →</a></li>
+                        <li><a href="https://developers.shapeways.com/materials" target="_blank" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com/materials'); return false;">Materials Guide →</a></li>
+                    </ul>
+                </div>
+
+            </aside>
+        </div>
+    </div>
+
+    <!-- Similar APIs -->
+    <section class="similar-apis">
+        <div class="container">
+            <h2>Compare with Similar APIs</h2>
+            <div class="similar-grid">
+                
+                <a href="#" class="similar-card" onclick="trackAndOpen('imaterialise', 'view_page', '#'); return false;">
+                    <div class="similar-logo" style="background: #e74c3c;">i.m</div>
+                    <h4>i.materialise</h4>
+                    <p>20+ premium materials including porcelain. Strong EU presence.</p>
+                    <div class="similar-meta">
+                        <span>⭐⭐⭐⭐</span>
+                        <span class="similar-region">🇪🇺 EU</span>
+                    </div>
+                </a>
+
+                <a href="#" class="similar-card" onclick="trackAndOpen('sculpteo', 'view_page', '#'); return false;">
+                    <div class="similar-logo" style="background: #9b59b6;">Sc</div>
+                    <h4>Sculpteo</h4>
+                    <p>HP Multi Jet Fusion, batch ordering, BASF materials.</p>
+                    <div class="similar-meta">
+                        <span>⭐⭐⭐⭐</span>
+                        <span class="similar-region">🇪🇺 EU</span>
+                    </div>
+                </a>
+
+                <a href="#" class="similar-card" onclick="trackAndOpen('treatstock', 'view_page', '#'); return false;">
+                    <div class="similar-logo" style="background: #1abc9c;">Tr</div>
+                    <h4>Treatstock</h4>
+                    <p>Local 3D printing marketplace. Fast turnaround.</p>
+                    <div class="similar-meta">
+                        <span>⭐⭐⭐</span>
+                        <span class="similar-region">🌍 Global</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Back to Directory -->
+    <section class="back-section">
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Directory</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+                    </a>
+                    <p class="footer-tagline">The API Directory for On-Demand Manufacturing</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Directory</h4>
+                    <a href="index.html">All APIs</a>
+                    <a href="index.html">3D Printing</a>
+                    <a href="index.html">CNC Machining</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contribute</h4>
+                    <a href="submit.html">Submit Manufacturer</a>
+                    <a href="#">Claim Listing</a>
+                    <a href="#">API Corrections</a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get new manufacturing APIs in your inbox.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="email@example.com" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ForgeAPI.io — Connecting code to factories.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message">Message</span>
+    </div>
+
+    <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

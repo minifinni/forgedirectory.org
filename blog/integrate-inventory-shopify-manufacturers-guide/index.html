@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Integrate Your Inventory System with Shopify: A Manufacturer's Guide | Forge Directory</title>
+  <meta name="description" content="How to Integrate Your Inventory System with Shopify: A Manufacturer's Guide" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    .blog-post { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .post-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin-bottom: 1rem; }
+    .post-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: var(--text-primary); }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .post-meta .tag { background: var(--accent-muted); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 4px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--accent); }
+    .post-body p { margin-bottom: 1.25rem; line-height: 1.75; color: var(--text-secondary); }
+    .post-body ul, .post-body ol { margin: 0 0 1.25rem 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; line-height: 1.6; color: var(--text-secondary); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--bg-card); border-radius: 0 4px 4px 0; }
+    .post-body code { background: var(--bg-card); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 0.875em; color: var(--accent); }
+    .post-body strong { color: var(--text-primary); font-weight: 600; }
+    .post-cta { background: var(--bg-card); border: 1px solid var(--border); padding: 2rem; margin-top: 3rem; border-radius: var(--radius-lg); text-align: center; }
+    .post-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .post-cta p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .post-cta a { display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 1.75rem; font-weight: 600; border-radius: var(--radius-md); }
+    .back-link { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; display: block; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">Forge<span style="color:var(--accent)">.</span></a>
+        <nav style="display:flex;gap:1.5rem;align-items:center;">
+          <a href="/" style="color:var(--text-secondary);font-size:0.9rem;">Directory</a>
+          <a href="/blog/" style="color:var(--text-secondary);font-size:0.9rem;">Blog</a>
+          <a href="/submit.html" style="background:var(--accent);color:#000;padding:0.4rem 1rem;border-radius:6px;font-size:0.875rem;font-weight:600;">Submit API</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <article class="blog-post">
+    <a href="/blog/" class="back-link">← All Posts</a>
+    <div class="post-label">/ Blog</div>
+    <h1 class="post-title">How to Integrate Your Inventory System with Shopify: A Manufacturer's Guide</h1>
+    <div class="post-meta">2026-03-03 &nbsp;·&nbsp; shopify, inventory, integration, manufacturing, D2C, API, ecommerce</div>
+    <div class="post-body">
+<p>
+# How to Integrate Your Inventory System with Shopify: A Manufacturer's Guide
+</p>
+<p>
+Selling direct-to-consumer (D2C) through Shopify while running manufacturing operations creates a classic inventory nightmare. Your shop floor system says you have 500 units. Shopify says 487. A customer just ordered 20, but you actually only have 12 because 8 were allocated to a wholesale order that hasn't shipped yet.
+</p>
+<p>
+This guide walks through integrating your manufacturing inventory system with Shopify—the right way.
+</p>
+<h2>Why Integration Matters for Manufacturers</h2>
+<p>
+Manual inventory updates between systems create three problems:
+</p>
+<ol>
+<li><strong>Overselling</strong> — You sell units that don't exist, damaging customer trust</li>
+<li><strong>Underselling</strong> — You hide available inventory, leaving money on the table</li>
+<li><strong>Operational drag</strong> — Someone spends hours every day updating stock levels instead of making things</li>
+</ol>
+<p>
+Real-time inventory sync isn't just convenient—it's competitive advantage.
+</p>
+<h2>The Integration Architecture</h2>
+<p>
+Most manufacturer-to-Shopify integrations follow this pattern:
+</p>
+<p>
+<code>`</code>
+ 
+┌─────────────────┐     ┌──────────────────┐     ┌─────────────┐
+ 
+│  Manufacturing  │◄───►│  Integration     │◄───►│   Shopify   │
+ 
+│  System (ERP)   │     │  Layer (Your API)│     │   Store     │
+ 
+└─────────────────┘     └──────────────────┘     └─────────────┘
+ 
+│                       │
+ 
+▼                       ▼
+ 
+Raw materials            Orders flow
+ 
+Work orders              Customer data
+ 
+Finished goods           Shipping updates
+ 
+<code>`</code>
+</p>
+<p>
+The integration layer handles:
+</p>
+<ul>
+<li>Authentication with both systems</li>
+<li>Data transformation (field mapping, unit conversion)</li>
+<li>Sync scheduling (real-time vs. batch)</li>
+<li>Conflict resolution (when both systems update simultaneously)</li>
+<li>Error handling and retries</li>
+</ul>
+<h2>Step-by-Step Implementation</h2>
+<h3>Step 1: Map Your Data Fields</h3>
+<p>
+Before writing code, document how fields translate between systems:
+</p>
+<p>
+| Manufacturing System | Shopify | Notes |
+ 
+|---------------------|---------|-------|
+ 
+| SKU-001-BLU | sku-001-blue | Shopify uses lowercase, hyphens |
+ 
+| Finished Goods Warehouse | Location ID: 123456789 | Multi-location manufacturing needs mapping |
+ 
+| Qty Available (minus allocations) | inventory_quantity | Don't sync gross inventory |
+ 
+| Lot L-2025-03-A | inventory_item.inventory_levels | Track lot numbers in Shopify metafields |
+</p>
+<p>
+<strong>Key decision:</strong> Do you sync "available to promise" inventory or "physical on-hand"? For D2C, use available-to-promise—physical inventory minus allocations for existing orders, safety stock, and wholesale commitments.
+</p>
+<h3>Step 2: Set Up Authentication</h3>
+<p>
+Shopify uses OAuth 2.0 for app authentication. Your manufacturing system will vary.
+</p>
+<p>
+<strong>Shopify authentication flow:</strong>
+ 
+<code>`</code>javascript
+ 
+// 1. Redirect merchant to Shopify to authorize
+ 
+const authUrl = <code>https://${shop}.myshopify.com/admin/oauth/authorize?</code> +
+ 
+<code>client_id=${API_KEY}&</code> +
+ 
+<code>scope=read_products,write_products,read_inventory,write_inventory&</code> +
+ 
+<code>redirect_uri=${encodeURIComponent(redirectUri)}&</code> +
+ 
+<code>state=${nonce}</code>;
+</p>
+<p>
+// 2. Exchange temporary code for permanent access token
+ 
+const tokenResponse = await fetch(<code>https://${shop}.myshopify.com/admin/oauth/access_token</code>, {
+ 
+method: 'POST',
+ 
+headers: { 'Content-Type': 'application/json' },
+ 
+body: JSON.stringify({
+ 
+client_id: API_KEY,
+ 
+client_secret: API_SECRET,
+ 
+code: temporaryCode
+ 
+})
+ 
+});
+</p>
+<p>
+const { access_token } = await tokenResponse.json();
+ 
+// Store access_token securely—this is your permanent API key
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Store credentials securely.</strong> Never hardcode tokens. Use environment variables or a secrets manager like AWS Secrets Manager or HashiCorp Vault.
+</p>
+<h3>Step 3: Build the Inventory Sync</h3>
+<p>
+The core loop: poll your manufacturing system for changes, push updates to Shopify.
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Manufacturing system → Shopify sync
+ 
+async function syncInventoryToShopify() {
+ 
+// 1. Get changed inventory from manufacturing system
+ 
+const lastSync = await getLastSyncTimestamp();
+ 
+const inventoryChanges = await manufacturingAPI.getInventoryChanges(lastSync);
+</p>
+<p>
+for (const item of inventoryChanges) {
+ 
+try {
+ 
+// 2. Map manufacturing SKU to Shopify variant ID
+ 
+const shopifyVariantId = await getShopifyVariantId(item.sku);
+</p>
+<p>
+if (!shopifyVariantId) {
+ 
+console.warn(<code>SKU ${item.sku} not found in Shopify</code>);
+ 
+continue;
+ 
+}
+</p>
+<p>
+// 3. Calculate available inventory
+ 
+const availableQty = item.onHand - item.allocated - item.safetyStock;
+</p>
+<p>
+// 4. Update Shopify inventory level
+ 
+await fetch(<code>https://${shop}.myshopify.com/admin/api/2024-01/inventory_levels/set.json</code>, {
+ 
+method: 'POST',
+ 
+headers: {
+ 
+'X-Shopify-Access-Token': accessToken,
+ 
+'Content-Type': 'application/json'
+ 
+},
+ 
+body: JSON.stringify({
+ 
+location_id: shopifyLocationId,
+ 
+inventory_item_id: shopifyVariantId,
+ 
+available: Math.max(0, availableQty)
+ 
+})
+ 
+});
+</p>
+<p>
+// 5. Log successful sync
+ 
+await logSync(item.sku, availableQty, 'success');
+</p>
+<p>
+} catch (error) {
+ 
+// 6. Handle errors—retry or alert
+ 
+await logSync(item.sku, null, 'error', error.message);
+ 
+await alertOperationsTeam(<code>Sync failed for ${item.sku}: ${error.message}</code>);
+ 
+}
+ 
+}
+</p>
+<p>
+// 7. Update last sync timestamp
+ 
+await setLastSyncTimestamp(new Date().toISOString());
+ 
+}
+</p>
+<p>
+// Run every 5 minutes
+ 
+setInterval(syncInventoryToShopify, 5 <em> 60 </em> 1000);
+ 
+<code>`</code>
+</p>
+<h3>Step 4: Handle Orders Flowing Back</h3>
+<p>
+When Shopify sells something, you need that order in your manufacturing system for fulfillment.
+</p>
+<p>
+<strong>Shopify webhook setup:</strong>
+ 
+<code>`</code>javascript
+ 
+// Create a webhook to notify your system of new orders
+ 
+await fetch(<code>https://${shop}.myshopify.com/admin/api/2024-01/webhooks.json</code>, {
+ 
+method: 'POST',
+ 
+headers: {
+ 
+'X-Shopify-Access-Token': accessToken,
+ 
+'Content-Type': 'application/json'
+ 
+},
+ 
+body: JSON.stringify({
+ 
+webhook: {
+ 
+topic: 'orders/create',
+ 
+address: 'https://your-integration-server.com/webhooks/shopify/orders',
+ 
+format: 'json'
+ 
+}
+ 
+})
+ 
+});
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Webhook handler:</strong>
+ 
+<code>`</code>javascript
+ 
+app.post('/webhooks/shopify/orders', async (req, res) => {
+ 
+// 1. Verify webhook authenticity (Shopify signs webhooks)
+ 
+const hmac = req.headers['x-shopify-hmac-sha256'];
+ 
+const hash = crypto
+ 
+.createHmac('sha256', webhookSecret)
+ 
+.update(req.body, 'utf8')
+ 
+.digest('base64');
+</p>
+<p>
+if (hmac !== hash) {
+ 
+return res.status(401).send('Unauthorized');
+ 
+}
+</p>
+<p>
+// 2. Process the order
+ 
+const order = req.body;
+</p>
+<p>
+await manufacturingAPI.createSalesOrder({
+ 
+orderNumber: order.name,
+ 
+customer: {
+ 
+name: <code>${order.customer.first_name} ${order.customer.last_name}</code>,
+ 
+email: order.email
+ 
+},
+ 
+lineItems: order.line_items.map(item => ({
+ 
+sku: item.sku,
+ 
+quantity: item.quantity,
+ 
+unitPrice: item.price
+ 
+})),
+ 
+shippingAddress: order.shipping_address,
+ 
+source: 'shopify'
+ 
+});
+</p>
+<p>
+res.status(200).send('OK');
+ 
+});
+ 
+<code>`</code>
+</p>
+<h3>Step 5: Handle Multi-Location Manufacturing</h3>
+<p>
+If you manufacture in multiple locations, you need a location mapping strategy:
+</p>
+<p>
+<code>`</code>javascript
+ 
+const locationMapping = {
+ 
+'WAREHOUSE_A': {
+ 
+shopifyLocationId: '123456789',
+ 
+shopifyLocationName: 'Main Warehouse'
+ 
+},
+ 
+'FACTORY_B': {
+ 
+shopifyLocationId: '987654321',
+ 
+shopifyLocationName: 'West Coast Facility'
+ 
+}
+ 
+};
+</p>
+<p>
+// Sync inventory for each location separately
+ 
+for (const [mfgLocation, shopifyLocation] of Object.entries(locationMapping)) {
+ 
+const inventory = await manufacturingAPI.getInventoryByLocation(mfgLocation);
+</p>
+<p>
+for (const item of inventory) {
+ 
+await updateShopifyInventory(
+ 
+item.sku,
+ 
+shopifyLocation.shopifyLocationId,
+ 
+item.available
+ 
+);
+ 
+}
+ 
+}
+ 
+<code>`</code>
+</p>
+<h2>Common Pitfalls (And How to Avoid Them)</h2>
+<h3>1. <strong>Race Conditions</strong></h3>
+<p>
+<strong>Problem:</strong> Two orders come in simultaneously. Both see 10 units available. Both sell 10 units. You're now -10.
+</p>
+<p>
+<strong>Solution:</strong> Shopify handles inventory reservation at checkout, but you need atomic updates in your manufacturing system. Use database transactions or inventory reservation patterns:
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Reserve inventory before confirming order
+ 
+await manufacturingAPI.reserveInventory({
+ 
+sku: orderItem.sku,
+ 
+quantity: orderItem.quantity,
+ 
+orderId: order.id,
+ 
+expiresAt: Date.now() + (30 <em> 60 </em> 1000) // 30 min reservation
+ 
+});
+ 
+<code>`</code>
+</p>
+<h3>2. <strong>API Rate Limits</strong></h3>
+<p>
+Shopify allows 40 requests/second for standard plans, 80 for Shopify Plus. Bursting through these limits breaks your integration.
+</p>
+<p>
+<strong>Solution:</strong> Implement rate limiting and batching:
+</p>
+<p>
+<code>`</code>javascript
+ 
+import Bottleneck from 'bottleneck';
+</p>
+<p>
+const limiter = new Bottleneck({
+ 
+minTime: 25, // 40 requests per second max
+ 
+maxConcurrent: 10
+ 
+});
+</p>
+<p>
+const updateShopifyInventory = limiter.wrap(async (sku, locationId, qty) => {
+ 
+// Your update logic here
+ 
+});
+ 
+<code>`</code>
+</p>
+<h3>3. <strong>SKU Mismatches</strong></h3>
+<p>
+Your manufacturing system calls it "BRACKET-V2-BLU." Shopify has "bracket-v2-blue." The sync silently fails.
+</p>
+<p>
+<strong>Solution:</strong> Maintain a SKU mapping table and validate mappings regularly:
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Validate all manufacturing SKUs exist in Shopify
+ 
+const validationReport = await validateSkuMappings();
+ 
+if (validationReport.missing.length > 0) {
+ 
+await alertOperationsTeam(
+ 
+<code>Missing Shopify SKUs: ${validationReport.missing.join(', ')}</code>
+ 
+);
+ 
+}
+ 
+<code>`</code>
+</p>
+<h3>4. <strong>Ignoring Shopify's Inventory Levels</strong></h3>
+<p>
+Shopify tracks inventory at the <code>inventory_item</code> level, not the <code>product</code> level. Updating the wrong level creates discrepancies.
+</p>
+<p>
+<strong>Solution:</strong> Always update <code>inventory_levels</code> for the specific location, using the <code>inventory_item_id</code> from the variant:
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Get the correct inventory_item_id
+ 
+const variant = await shopifyAPI.get(<code>/variants/${variantId}.json</code>);
+ 
+const inventoryItemId = variant.inventory_item_id;
+</p>
+<p>
+// Update the inventory level at the specific location
+ 
+await shopifyAPI.post('/inventory_levels/set.json', {
+ 
+location_id: locationId,
+ 
+inventory_item_id: inventoryItemId,
+ 
+available: newQuantity
+ 
+});
+ 
+<code>`</code>
+</p>
+<h3>5. <strong>No Error Recovery</strong></h3>
+<p>
+Your integration goes down. Shopify orders pile up. When it restarts, you have 50 unprocessed orders and angry customers.
+</p>
+<p>
+<strong>Solution:</strong> Build idempotency and replay capability:
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Store processed order IDs to avoid duplicates
+ 
+const processedOrderIds = new Set(await getProcessedOrderIds());
+</p>
+<p>
+app.post('/webhooks/shopify/orders', async (req, res) => {
+ 
+const orderId = req.body.id;
+</p>
+<p>
+if (processedOrderIds.has(orderId)) {
+ 
+return res.status(200).send('Already processed');
+ 
+}
+</p>
+<p>
+// Process order...
+ 
+await manufacturingAPI.createSalesOrder(req.body);
+ 
+await markOrderProcessed(orderId);
+</p>
+<p>
+res.status(200).send('OK');
+ 
+});
+ 
+<code>`</code>
+</p>
+<h2>Testing Your Integration</h2>
+<p>
+Before going live:
+</p>
+<ol>
+<li><strong>Sandbox testing</strong> — Use Shopify's development stores and your manufacturing system's test environment</li>
+<li><strong>Volume testing</strong> — Simulate Black Friday-level traffic (100+ orders/minute)</li>
+<li><strong>Failure testing</strong> — Kill the integration mid-sync. Verify recovery.</li>
+<li><strong>Edge cases</strong> — Test zero inventory, negative inventory, and discontinued SKUs</li>
+</ol>
+<h2>Tools and Platforms That Can Help</h2>
+<p>
+Don't want to build from scratch? Consider these integration platforms:
+</p>
+<ul>
+<li><strong>Zapier/Make</strong> — Good for simple, low-volume integrations (under 1,000 orders/month)</li>
+<li><strong>Celigo</strong> — Purpose-built for manufacturing-Shopify integrations</li>
+<li><strong>SyncSpider</strong> — Specialized in e-commerce integrations with manufacturing systems</li>
+<li><strong>Custom middleware</strong> — Use Node.js/ Python with libraries like <code>shopify-api-node</code></li>
+</ul>
+<h2>Measuring Success</h2>
+<p>
+Track these metrics:
+</p>
+<ul>
+<li><strong>Sync latency</strong> — Time from inventory change to Shopify update (target: < 5 minutes)</li>
+<li><strong>Error rate</strong> — Failed syncs / total syncs (target: < 0.1%)</li>
+<li><strong>Oversell incidents</strong> — Shopify orders for unavailable inventory (target: 0)</li>
+<li><strong>Manual interventions</strong> — Human fixes required per week (target: < 5)</li>
+</ul>
+<h2>Final Thoughts</h2>
+<p>
+Inventory integration isn't a one-time project—it's an ongoing operational system. Start simple (one-way sync of inventory levels), get it stable, then add bidirectional order flow. Monitor religiously. Fix errors fast. Your customers will thank you with repeat business.
+</p>
+<p>
+Need help finding the right APIs? Browse the <a href="https://forgedirectory.org">ForgeDirectory manufacturing API catalog</a> for authentication details, endpoint references, and integration patterns for popular inventory and ERP systems.
+</p>
+    </div>
+    <div class="post-cta">
+      <h3>Find the right manufacturing API</h3>
+      <p>Browse our directory of vetted manufacturing APIs. Filter by category, integration type, and pricing.</p>
+      <a href="/">Browse Directory</a>
+    </div>
+  </article>
+  <footer style="border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:4rem;">
+    <div class="container">
+      <a href="/" style="color:var(--accent);font-weight:600;margin-right:1.5rem;">Forge Directory</a>
+      <a href="/blog/" style="color:var(--text-muted);margin-right:1.5rem;">Blog</a>
+      <a href="/submit.html" style="color:var(--text-muted);">Submit</a>
+      <div style="margin-top:1rem;">© 2026 Forge Directory</div>
+    </div>
+  </footer>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

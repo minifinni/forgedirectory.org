@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge Directory — Manufacturing APIs & On-Demand Manufacturing Services</title>
+    <meta name="description" content="Compare 16+ manufacturing APIs and on-demand services. Find the best 3D printing, CNC machining, laser cutting, injection molding, and print-on-demand APIs for your business.">
+    <meta property="og:title" content="Forge Directory — Manufacturing APIs">
+    <meta property="og:description" content="The definitive directory of manufacturing APIs. Compare 16+ services for 3D printing, CNC, laser cutting, and more.">
+    <meta property="og:image" content="https://forgedirectory.org/og-image.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://forgedirectory.org">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Forge Directory — Manufacturing APIs">
+    <meta name="twitter:description" content="Compare 16+ manufacturing APIs and on-demand services.">
+    <meta name="canonical" content="https://forgedirectory.org">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Plausible Analytics -->
+    <script defer data-domain="forgedirectory.org" src="https://plausible.io/js/script.outbound-links.js"></script>
+    
+    <!-- JSON-LD Structured Data: ItemList -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Manufacturing API Directory",
+      "description": "Directory of on-demand manufacturing APIs including 3D printing, CNC machining, laser cutting, and print-on-demand services.",
+      "url": "https://forgedirectory.org",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Shapeways", "url": "https://developers.shapeways.com"},
+        {"@type": "ListItem", "position": 2, "name": "Xometry", "url": "https://www.xometry.com/api"},
+        {"@type": "ListItem", "position": 3, "name": "i.materialise", "url": "https://i.materialise.com/api"},
+        {"@type": "ListItem", "position": 4, "name": "Sculpteo", "url": "https://www.sculpteo.com/en/api/"},
+        {"@type": "ListItem", "position": 5, "name": "Hubs (Protolabs)", "url": "https://hubs.com/api"},
+        {"@type": "ListItem", "position": 6, "name": "Gooten", "url": "https://www.gooten.com/api"},
+        {"@type": "ListItem", "position": 7, "name": "Gelato", "url": "https://www.gelato.com/api"},
+        {"@type": "ListItem", "position": 8, "name": "Protolabs", "url": "https://www.protolabs.com/api"}
+      ]
+    }
+    </script>
+    
+    <!-- JSON-LD Structured Data: WebSite -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Forge Directory",
+      "url": "https://forgedirectory.org",
+      "description": "The definitive directory of manufacturing APIs and on-demand manufacturing services.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://forgedirectory.org/?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+            </a>
+            <p class="tagline">The API Directory for On-Demand Manufacturing</p>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Directory</a>
+                <a href="submit.html" class="nav-link">Submit</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">Connect Code to Factories</h1>
+            <p class="hero-subtitle">The definitive directory of on-demand manufacturing APIs. Compare 16+ services for 3D printing, CNC machining, laser cutting, print-on-demand, and more.</p>
+            
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Search APIs (e.g., Shapeways, 3D printing, figurines...)">
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">16+</span>
+                    <span class="stat-label">APIs</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">8</span>
+                    <span class="stat-label">Process Types</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">🌍</span>
+                    <span class="stat-label">Global Coverage</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Bar -->
+    <section class="filter-section">
+        <div class="container">
+            <div class="filter-group">
+                <span class="filter-label">Type</span>
+                <div class="filter-bar" id="filterBar">
+                    <button class="filter-pill active" data-filter="all">All</button>
+                    <button class="filter-pill" data-filter="3d-printing">3D Printing</button>
+                    <button class="filter-pill" data-filter="cnc-machining">CNC Machining</button>
+                    <button class="filter-pill" data-filter="print-on-demand">Print-on-Demand</button>
+                    <button class="filter-pill" data-filter="laser-cutting">Laser Cutting</button>
+                    <button class="filter-pill" data-filter="injection-molding">Injection Molding</button>
+                    <button class="filter-pill" data-filter="casting">Casting</button>
+                    <button class="filter-pill" data-filter="sheet-metal">Sheet Metal</button>
+                    <button class="filter-pill" data-filter="pcb">PCB / Electronics</button>
+                    <button class="filter-pill" data-filter="multi-process">Multi-Process</button>
+                </div>
+            </div>
+            <div class="filter-group">
+                <span class="filter-label">Region</span>
+                <div class="filter-bar" id="regionBar">
+                    <button class="filter-pill region-pill active" data-region="all">🌍 All Regions</button>
+                    <button class="filter-pill region-pill" data-region="us">🇺🇸 US</button>
+                    <button class="filter-pill region-pill" data-region="eu">🇪🇺 Europe</button>
+                    <button class="filter-pill region-pill" data-region="uk">🇬🇧 UK</button>
+                    <button class="filter-pill region-pill" data-region="global">🌐 Global</button>
+                    <button class="filter-pill region-pill" data-region="asia">🌏 Asia</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Directory Grid -->
+    <section class="directory">
+        <div class="container">
+            <div class="results-count" id="resultsCount">Showing all 16 manufacturers</div>
+            
+            <div class="manufacturer-grid" id="manufacturerGrid">
+                
+                <!-- Shapeways -->
+                <div class="manufacturer-card" data-categories="3d-printing multi-process" data-region="global" data-name="shapeways">
+                    <div class="card-header">
+                        <div class="card-logo">S</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Shapeways</h3>
+                    <p class="card-description">The leading 3D printing service with 60+ materials. Best for detailed figurines, full-color sandstone, and consumer products.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Figurines, Jewelry</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('shapeways', 'view_docs', 'https://developers.shapeways.com')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('shapeways', 'get_api_key', 'https://www.shapeways.com/developers')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Xometry -->
+                <div class="manufacturer-card" data-categories="multi-process cnc-machining 3d-printing" data-region="us" data-name="xometry">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #0066ff;">X</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Xometry</h3>
+                    <p class="card-description">Industrial-grade manufacturing at scale. CNC machining, 3D printing, injection molding, and sheet metal with instant quoting.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">Industrial Parts</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('xometry', 'view_docs', 'https://www.xometry.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('xometry', 'get_api_key', 'https://www.xometry.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- i.materialise -->
+                <div class="manufacturer-card" data-categories="3d-printing" data-region="eu" data-name="imaterialise">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #e74c3c;">i.m</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">i.materialise</h3>
+                    <p class="card-description">High-quality 3D printing with 20+ premium materials including porcelain and multicolor. Strong European presence.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇪🇺 EU</span>
+                            <span class="use-case">Premium Consumer</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('imaterialise', 'view_docs', 'https://i.materialise.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('imaterialise', 'get_api_key', 'https://i.materialise.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Sculpteo -->
+                <div class="manufacturer-card" data-categories="3d-printing" data-region="eu" data-name="sculpteo">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #9b59b6;">Sc</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Sculpteo</h3>
+                    <p class="card-description">Professional prototyping with HP Multi Jet Fusion and BASF materials. Excellent API documentation and batch ordering.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇪🇺 EU</span>
+                            <span class="use-case">Batch Production</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('sculpteo', 'view_docs', 'https://www.sculpteo.com/en/api/')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('sculpteo', 'get_api_key', 'https://www.sculpteo.com/en/api/')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Hubs -->
+                <div class="manufacturer-card" data-categories="multi-process 3d-printing cnc-machining injection-molding" data-region="global" data-name="hubs">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #e67e22;">H</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Hubs (Protolabs)</h3>
+                    <p class="card-description">Global network of local manufacturers. Quote aggregation and order routing to optimal providers with quality control.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Multi-provider</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('hubs', 'view_docs', 'https://hubs.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('hubs', 'get_api_key', 'https://hubs.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Treatstock -->
+                <div class="manufacturer-card" data-categories="3d-printing" data-region="global" data-name="treatstock">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #1abc9c;">Tr</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Treatstock</h3>
+                    <p class="card-description">Global network of local 3D printers. Marketplace model with competitive pricing and fast turnaround times.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Fast Turnaround</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('treatstock', 'view_docs', 'https://www.treatstock.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('treatstock', 'get_api_key', 'https://www.treatstock.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Slant 3D -->
+                <div class="manufacturer-card" data-categories="3d-printing" data-name="slant3d">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #34495e;">Sl</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Slant 3D</h3>
+                    <p class="card-description">High-volume 3D printing production. US-based print farms built for scale with batch queue management.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">High Volume</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('slant3d', 'view_docs', 'https://slant3d.com')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('slant3d', 'get_api_key', 'https://slant3d.com')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Voodoo Manufacturing -->
+                <div class="manufacturer-card" data-categories="3d-printing" data-region="us" data-name="voodoo">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #8e44ad;">V</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">3D Printing</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Voodoo Manufacturing</h3>
+                    <p class="card-description">Startup-friendly batch production based in Brooklyn. Cloud-based file management with volume discounts.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">Startups</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('voodoo', 'view_docs', 'https://voodoomfg.com')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('voodoo', 'get_api_key', 'https://voodoomfg.com')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Protolabs -->
+                <div class="manufacturer-card" data-categories="multi-process cnc-machining 3d-printing injection-molding" data-region="us" data-name="protolabs">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #c0392b;">P</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Protolabs</h3>
+                    <p class="card-description">Rapid prototyping with 1-day turnaround. CNC machining, 3D printing, injection molding with DFM analysis.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸🇪🇺 US/EU</span>
+                            <span class="use-case">Rapid Proto</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('protolabs', 'view_docs', 'https://www.protolabs.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('protolabs', 'get_api_key', 'https://www.protolabs.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Fictiv -->
+                <div class="manufacturer-card" data-categories="multi-process cnc-machining 3d-printing casting" data-region="us" data-name="fictiv">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #16a085;">F</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Fictiv</h3>
+                    <p class="card-description">Hardware development and rapid iteration. CNC, 3D printing, and urethane casting with 1-5 day turnaround.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">Hardware Dev</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('fictiv', 'view_docs', 'https://www.fictiv.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('fictiv', 'get_api_key', 'https://www.fictiv.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Fast Radius -->
+                <div class="manufacturer-card" data-categories="multi-process 3d-printing" data-name="fastradius">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #d35400;">FR</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Fast Radius</h3>
+                    <p class="card-description">End-to-end manufacturing with design optimization and fulfillment services. Enterprise-focused with full pipeline integration.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">Enterprise</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('fastradius', 'view_docs', 'https://fastradius.com')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('fastradius', 'get_api_key', 'https://fastradius.com')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Ponoko -->
+                <div class="manufacturer-card" data-categories="laser-cutting 3d-printing" data-region="us" data-name="ponoko">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #27ae60;">Po</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Laser Cutting</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Ponoko</h3>
+                    <p class="card-description">Laser cutting and 3D printing hybrid services. Acrylic, wood, leather, metal cutting with instant quoting.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🇺🇸 US</span>
+                            <span class="use-case">Hybrid Products</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('ponoko', 'view_docs', 'https://www.ponoko.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('ponoko', 'get_api_key', 'https://www.ponoko.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Gooten -->
+                <div class="manufacturer-card" data-categories="print-on-demand" data-name="gooten">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #2980b9;">Go</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Print-on-Demand</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Gooten</h3>
+                    <p class="card-description">Print-on-demand with Shopify, WooCommerce, Etsy integrations. Apparel, home goods, and custom products with global fulfillment.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">E-commerce</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('gooten', 'view_docs', 'https://www.gooten.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('gooten', 'get_api_key', 'https://www.gooten.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Gelato -->
+                <div class="manufacturer-card" data-categories="print-on-demand" data-name="gelato">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #2c3e50;">Ge</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Print-on-Demand</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Gelato</h3>
+                    <p class="card-description">Global print-on-demand with 100+ production partners. Local production for fast delivery worldwide.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Global POD</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('gelato', 'view_docs', 'https://www.gelato.com/api')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('gelato', 'get_api_key', 'https://www.gelato.com/api')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Craftcloud3D -->
+                <div class="manufacturer-card" data-categories="multi-process 3d-printing" data-region="global" data-name="craftcloud">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #8e44ad;">CC</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Craftcloud3D</h3>
+                    <p class="card-description">3D printing aggregator platform. Compare quotes across multiple services and manage multi-provider orders.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Quote Compare</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('craftcloud', 'view_docs', 'https://craftcloud3d.com')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('craftcloud', 'get_api_key', 'https://craftcloud3d.com')">Get API Key →</button>
+                    </div>
+                </div>
+
+                <!-- Protolabs Network -->
+                <div class="manufacturer-card" data-categories="multi-process cnc-machining 3d-printing injection-molding" data-name="protolabs-network">
+                    <div class="card-header">
+                        <div class="card-logo" style="background: #e74c3c;">PN</div>
+                        <div class="card-badges">
+                            <span class="badge badge-process">Multi-Process</span>
+                        </div>
+                    </div>
+                    <h3 class="card-title">Protolabs Network</h3>
+                    <p class="card-description">Protolabs' global network for multi-process manufacturing. Premium quality with extensive regional coverage.</p>
+                    <div class="card-meta">
+                        <div class="meta-row">
+                            <span class="stars">⭐⭐⭐⭐</span>
+                            <span class="api-maturity">API Maturity</span>
+                        </div>
+                        <div class="meta-row">
+                            <span class="region">🌍 Global</span>
+                            <span class="use-case">Production</span>
+                        </div>
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn btn-secondary" onclick="trackAndOpen('protolabs-network', 'view_docs', 'https://www.protolabs.com/network')">View Docs →</button>
+                        <button class="btn btn-primary" onclick="trackAndOpen('protolabs-network', 'get_api_key', 'https://www.protolabs.com/network')">Get API Key →</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">🔍</div>
+                <h3>No manufacturers found</h3>
+                <p>Try adjusting your search or filters to find what you're looking for.</p>
+                <button class="btn btn-primary" onclick="resetFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Submit CTA Banner -->
+    <section class="submit-banner">
+        <div class="container">
+            <div class="banner-content">
+                <h2>Are we missing a manufacturer?</h2>
+                <p>Submit a manufacturing API to the directory. Free listings for all public APIs.</p>
+                <a href="submit.html" class="btn btn-accent">Submit a Manufacturer →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+                    </a>
+                    <p class="footer-tagline">The API Directory for On-Demand Manufacturing</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Directory</h4>
+                    <a href="#" onclick="filterBy('3d-printing')">3D Printing APIs</a>
+                    <a href="#" onclick="filterBy('cnc-machining')">CNC Machining APIs</a>
+                    <a href="#" onclick="filterBy('print-on-demand')">Print-on-Demand</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contribute</h4>
+                    <a href="submit.html">Submit Manufacturer</a>
+                    <a href="#">Claim Listing</a>
+                    <a href="#">API Corrections</a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get new manufacturing APIs in your inbox.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="email@example.com" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ForgeAPI.io — Connecting code to factories.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message">Message</span>
+    </div>
+
+    <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

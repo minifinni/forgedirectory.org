@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Webhook vs Polling for Manufacturing APIs: When to Use Each | Forge Directory</title>
+  <meta name="description" content="Choosing between webhooks and polling for manufacturing integrations? We break down latency, reliability, and implementation costs with real-world examples from the factory floor." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    .blog-post { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .post-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin-bottom: 1rem; }
+    .post-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: var(--text-primary); }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .post-meta .tag { background: var(--accent-muted); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 4px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--accent); }
+    .post-body p { margin-bottom: 1.25rem; line-height: 1.75; color: var(--text-secondary); }
+    .post-body ul, .post-body ol { margin: 0 0 1.25rem 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; line-height: 1.6; color: var(--text-secondary); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--bg-card); border-radius: 0 4px 4px 0; }
+    .post-body code { background: var(--bg-card); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 0.875em; color: var(--accent); }
+    .post-body strong { color: var(--text-primary); font-weight: 600; }
+    .post-cta { background: var(--bg-card); border: 1px solid var(--border); padding: 2rem; margin-top: 3rem; border-radius: var(--radius-lg); text-align: center; }
+    .post-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .post-cta p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .post-cta a { display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 1.75rem; font-weight: 600; border-radius: var(--radius-md); }
+    .back-link { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; display: block; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">Forge<span style="color:var(--accent)">.</span></a>
+        <nav style="display:flex;gap:1.5rem;align-items:center;">
+          <a href="/" style="color:var(--text-secondary);font-size:0.9rem;">Directory</a>
+          <a href="/blog/" style="color:var(--text-secondary);font-size:0.9rem;">Blog</a>
+          <a href="/submit.html" style="background:var(--accent);color:#000;padding:0.4rem 1rem;border-radius:6px;font-size:0.875rem;font-weight:600;">Submit API</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <article class="blog-post">
+    <a href="/blog/" class="back-link">← All Posts</a>
+    <div class="post-label">/ Blog</div>
+    <h1 class="post-title">Webhook vs Polling for Manufacturing APIs: When to Use Each</h1>
+    <div class="post-meta">2026-03-09 &nbsp;·&nbsp; webhooks, polling, api-integration, manufacturing, real-time-data, architecture</div>
+    <div class="post-body">
+<p>
+# Webhook vs Polling for Manufacturing APIs: When to Use Each
+</p>
+<p>
+Your ERP just received a new purchase order. Your MES needs to know about it. Do you poll the ERP every 30 seconds, or does the ERP push an event to your system the instant it happens?
+</p>
+<p>
+This seemingly simple choice—polling versus webhooks—impacts latency, infrastructure costs, and system reliability. Get it wrong, and you're either burning API quota on empty checks or missing critical production events.
+</p>
+<p>
+Here's how to make the right call for manufacturing integrations.
+</p>
+<h2>The Fundamental Difference</h2>
+<p>
+<strong>Polling</strong> is asking "any updates?" repeatedly. Your system calls an API endpoint on a schedule—every 5 minutes, every 30 seconds, every hour—and processes whatever's new.
+</p>
+<p>
+<strong>Webhooks</strong> are the reverse. When something changes, the source system POSTs to a URL you provide. No asking required—you're told when it happens.
+</p>
+<p>
+<code>`</code>
+ 
+Polling:    Your System → "Any orders?" → ERP (every 30s)
+ 
+↓
+ 
+ERP → "No" / "Yes, here's 3" → Your System
+</p>
+<p>
+Webhooks:   ERP detects new order
+ 
+↓
+ 
+ERP → "New order #1234" → Your System (instantly)
+ 
+<code>`</code>
+</p>
+<p>
+The trade-offs go deeper than speed.
+</p>
+<h2>When Webhooks Win</h2>
+<p>
+Webhooks excel when latency matters and events are sporadic. Manufacturing has plenty of both.
+</p>
+<h3>High-Value Production Events</h3>
+<p>
+A CNC machine goes down. Your maintenance system needs to know <em>now</em>, not in 5 minutes. Webhooks cut alert latency from minutes to milliseconds.
+</p>
+<p>
+<strong>Real example:</strong> A metal fabrication shop in Ohio connected MachineMetrics to their maintenance system via webhooks. Machine stoppages that previously took 4-7 minutes to surface now trigger Slack alerts in under 2 seconds. Their mean time to repair (MTTR) dropped 23% because technicians respond while the problem is fresh, not after the operator has already wandered off.
+</p>
+<h3>Order-to-Production Handoffs</h3>
+<p>
+When a Shopify order hits your ERP, you want it in production scheduling immediately—not after the next polling cycle.
+</p>
+<p>
+A furniture manufacturer polling every 5 minutes creates this timeline:
+</p>
+<ul>
+<li>00:00 — Customer places order</li>
+<li>00:04 — Next poll discovers it</li>
+<li>00:05 — Production schedule updated</li>
+</ul>
+<p>
+With webhooks:
+</p>
+<ul>
+<li>00:00 — Customer places order</li>
+<li>00:01 — Production schedule updated</li>
+</ul>
+<p>
+At 200 orders/day, webhooks save 16 hours of collective customer waiting time.
+</p>
+<h3>Inventory Threshold Alerts</h3>
+<p>
+You want to reorder raw materials when stock hits a minimum threshold, not when you happen to check. Webhooks fire the moment inventory crosses your threshold—critical for just-in-time operations.
+</p>
+<p>
+<strong>Implementation example—Shopify webhook for low stock:</strong>
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Express handler for Shopify inventory_level/update webhook
+ 
+app.post('/webhooks/shopify/inventory', async (req, res) => {
+ 
+const { inventory_item_id, available, location_id } = req.body;
+</p>
+<p>
+// Verify webhook authenticity
+ 
+const hmac = req.headers['x-shopify-hmac-sha256'];
+ 
+const hash = crypto
+ 
+.createHmac('sha256', process.env.SHOPIFY_SECRET)
+ 
+.update(JSON.stringify(req.body), 'utf8')
+ 
+.digest('base64');
+</p>
+<p>
+if (hmac !== hash) {
+ 
+return res.status(401).send('Unauthorized');
+ 
+}
+</p>
+<p>
+// Check against reorder threshold
+ 
+const reorderPoint = await getReorderPoint(inventory_item_id);
+</p>
+<p>
+if (available <= reorderPoint) {
+ 
+await createPurchaseOrder({
+ 
+itemId: inventory_item_id,
+ 
+locationId: location_id,
+ 
+currentStock: available,
+ 
+reorderPoint: reorderPoint,
+ 
+suggestedQty: reorderPoint * 3 // Order 3x the reorder point
+ 
+});
+</p>
+<p>
+await notifyPurchasing({
+ 
+message: <code>Stock hit reorder threshold: ${available} units remaining</code>,
+ 
+item: inventory_item_id
+ 
+});
+ 
+}
+</p>
+<p>
+res.status(200).send('OK');
+ 
+});
+ 
+<code>`</code>
+</p>
+<h2>When Polling Makes Sense</h2>
+<p>
+Despite the hype around real-time, polling remains the right choice in several manufacturing scenarios.
+</p>
+<h3>Legacy System Constraints</h3>
+<p>
+Your 15-year-old on-premise ERP doesn't support webhooks. Period. Many manufacturing systems—especially those predating cloud-native architecture—only expose data via queryable APIs.
+</p>
+<p>
+<strong>The workaround:</strong> Poll aggressively during business hours, back off overnight. A 2-minute poll interval from 6 AM to 8 PM, 15 minutes overnight.
+</p>
+<h3>Guaranteed Delivery Requirements</h3>
+<p>
+Webhooks fail silently. If your endpoint is down when Shopify sends an order.created event, that event is gone (unless the sender implements retry logic with exponential backoff—many don't).
+</p>
+<p>
+Polling is resilient. If your system goes down for 10 minutes, you resume where you left off. No events lost.
+</p>
+<p>
+<strong>Idempotent polling pattern for manufacturing sync:</strong>
+</p>
+<p>
+<code>`</code>python
+ 
+def sync_orders():
+ 
+last_sync = get_last_sync_timestamp()
+</p>
+<p>
+# Always fetch from last successful sync point
+ 
+orders = erp_api.get_orders(
+ 
+modified_since=last_sync,
+ 
+limit=100
+ 
+)
+</p>
+<p>
+for order in orders:
+ 
+try:
+ 
+process_order(order)
+ 
+update_last_sync(order['modified_at'])
+ 
+except Exception as e:
+ 
+log_error(order['id'], e)
+ 
+# Don't update timestamp—retry this order next run
+ 
+break
+</p>
+<p>
+# Run every 2 minutes
+ 
+schedule.every(2).minutes.do(sync_orders)
+ 
+<code>`</code>
+</p>
+<h3>High-Volume Data Streams</h3>
+<p>
+A sensor sending temperature readings every 5 seconds produces 17,280 events per day. Webhooks create 17,280 HTTP requests—each with TLS handshake overhead, headers, and connection churn.
+</p>
+<p>
+Polling every 5 minutes batches those readings into 288 requests. Same data, 60x fewer connections.
+</p>
+<h3>Regulatory Audit Trails</h3>
+<p>
+For FDA-regulated manufacturers (medical devices, pharma), polling provides explicit audit points. You logged a check at 10:00:00, 10:02:00, 10:04:00—demonstrating systematic monitoring. Webhooks are harder to prove—you received events, but when and in what sequence?
+</p>
+<h2>The Cost Equation</h2>
+<p>
+Let's run numbers on a mid-sized manufacturer processing 1,000 orders/day.
+</p>
+<p>
+<strong>Polling approach:</strong>
+</p>
+<ul>
+<li>5-minute intervals = 288 polls/day</li>
+<li>1,000 orders discovered across those polls</li>
+<li>288 API calls, regardless of order volume</li>
+</ul>
+<p>
+<strong>Webhook approach:</strong>
+</p>
+<ul>
+<li>1,000 events = 1,000 API calls (or fewer if batching)</li>
+<li>Plus health checks/verification calls</li>
+</ul>
+<p>
+At low volumes (10 orders/day), polling wastes 278 API calls checking for nothing. At high volumes (10,000 orders/day), webhooks save 9,712 calls.
+</p>
+<p>
+<strong>The crossover point:</strong> Around 300 events/day. Below that, polling is cheaper. Above it, webhooks win.
+</p>
+<h2>Hybrid: The Production-Grade Approach</h2>
+<p>
+Sophisticated manufacturing integrations use both. Webhooks for speed, polling for safety.
+</p>
+<p>
+<strong>Pattern: Webhook + Periodic Reconciliation</strong>
+</p>
+<p>
+<code>`</code>javascript
+ 
+// Real-time processing via webhook
+ 
+app.post('/webhooks/erp/order-created', async (req, res) => {
+ 
+await processOrder(req.body);
+ 
+await markOrderProcessed(req.body.id);
+ 
+res.status(200).send('OK');
+ 
+});
+</p>
+<p>
+// Daily reconciliation poll catches anything webhooks missed
+ 
+async function reconcileOrders() {
+ 
+const yesterday = new Date(Date.now() - 24 <em> 60 </em> 60 * 1000);
+</p>
+<p>
+// Get all orders from last 24 hours
+ 
+const recentOrders = await erpApi.getOrders({
+ 
+created_after: yesterday.toISOString()
+ 
+});
+</p>
+<p>
+// Find orders we haven't processed
+ 
+const processedIds = await getProcessedOrderIds();
+ 
+const missedOrders = recentOrders.filter(
+ 
+o => !processedIds.includes(o.id)
+ 
+);
+</p>
+<p>
+for (const order of missedOrders) {
+ 
+console.warn(<code>Webhook missed order ${order.id}, processing via reconciliation</code>);
+ 
+await processOrder(order);
+ 
+await markOrderProcessed(order.id);
+ 
+}
+ 
+}
+</p>
+<p>
+// Run reconciliation at 2 AM daily
+ 
+schedule('0 2 <em> </em> *', reconcileOrders);
+ 
+<code>`</code>
+</p>
+<p>
+This gives you sub-second webhook latency with polling as a safety net. Missed webhooks (downtime, network blips, timeouts) are caught within 24 hours.
+</p>
+<h2>Manufacturing-Specific Considerations</h2>
+<h3>Shop Floor Network Instability</h3>
+<p>
+Factory WiFi drops. Ethernet cables get kicked. If your webhook receiver runs on the shop floor, expect intermittent connectivity. Design for it:
+</p>
+<ul>
+<li>Implement webhook queues (Redis, SQS) that buffer during outages</li>
+<li>Return 200 to the sender immediately, process asynchronously</li>
+<li>Use idempotency keys to prevent duplicate processing when webhooks retry</li>
+</ul>
+<h3>Batch Manufacturing vs. Continuous Flow</h3>
+<p>
+Batch processes (pharma, food) generate events at specific points—batch started, quality check completed, batch released. Webhooks fit perfectly.
+</p>
+<p>
+Continuous flow (chemical, paper) produces constant data streams. Polling with time-range queries handles this better.
+</p>
+<h3>EDI Integration Reality</h3>
+<p>
+Many suppliers still use EDI (X12, EDIFACT). EDI systems don't do webhooks—you poll FTP/SFTP dropboxes or AS2 endpoints. If your supply chain runs on EDI, polling isn't a choice, it's the protocol.
+</p>
+<h2>Decision Matrix</h2>
+<p>
+| Factor | Use Webhooks | Use Polling |
+ 
+|--------|--------------|-------------|
+ 
+| Event frequency | Sporadic (< 300/day) | Continuous or high-volume |
+ 
+| Latency requirement | < 1 minute acceptable | Minutes acceptable |
+ 
+| System capabilities | Modern REST API | Legacy SOAP/ERP |
+ 
+| Delivery guarantee | Can handle missed events | Must not lose events |
+ 
+| Infrastructure | Stable internet | Intermittent connectivity |
+ 
+| Compliance needs | Operational efficiency | Audit trails required |
+</p>
+<h2>Implementation Checklist</h2>
+<p>
+<strong>If choosing webhooks:</strong>
+</p>
+<ul>
+<li>[ ] Implement idempotency (don't double-process retried webhooks)</li>
+<li>[ ] Verify webhook signatures (Shopify, Stripe, etc. all sign payloads)</li>
+<li>[ ] Return 200 status codes quickly (< 5 seconds)</li>
+<li>[ ] Queue events for async processing</li>
+<li>[ ] Build retry logic for downstream failures</li>
+<li>[ ] Add reconciliation polling as backup</li>
+</ul>
+<p>
+<strong>If choosing polling:</strong>
+</p>
+<ul>
+<li>[ ] Store high-watermark timestamps for resume capability</li>
+<li>[ ] Implement exponential backoff on API errors</li>
+<li>[ ] Batch operations where possible</li>
+<li>[ ] Add jitter to poll intervals (avoid thundering herd)</li>
+<li>[ ] Monitor API quota usage</li>
+<li>[ ] Log every poll for audit trails</li>
+</ul>
+<h2>Final Thoughts</h2>
+<p>
+There's no universal right answer. A job shop with 50 orders/week should poll—simpler, more reliable, no webhook infrastructure to maintain. A high-velocity D2C manufacturer doing 5,000 orders/day needs webhooks to keep inventory sync sub-minute.
+</p>
+<p>
+Most manufacturing environments are hybrids. Your ERP-to-MES connection might use webhooks for speed. Your EDI supplier integration polls because that's what EDI does. Your legacy warehouse system gets polled until you replace it next year.
+</p>
+<p>
+Choose based on your actual latency requirements, not hypothetical ones. A 5-minute delay in production scheduling rarely matters. A 5-minute delay in detecting a quality escape can cost thousands.
+</p>
+<p>
+Match the pattern to the problem. Your infrastructure bill—and your operations team—will thank you.
+</p>
+<p>
+---
+</p>
+<p>
+Need help designing your manufacturing integration architecture? Browse the <a href="https://forgedirectory.org">ForgeDirectory API catalog</a> for detailed webhook documentation, polling examples, and authentication patterns for popular manufacturing systems.
+</p>
+    </div>
+    <div class="post-cta">
+      <h3>Find the right manufacturing API</h3>
+      <p>Browse our directory of vetted manufacturing APIs. Filter by category, integration type, and pricing.</p>
+      <a href="/">Browse Directory</a>
+    </div>
+  </article>
+  <footer style="border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:4rem;">
+    <div class="container">
+      <a href="/" style="color:var(--accent);font-weight:600;margin-right:1.5rem;">Forge Directory</a>
+      <a href="/blog/" style="color:var(--text-muted);margin-right:1.5rem;">Blog</a>
+      <a href="/submit.html" style="color:var(--text-muted);">Submit</a>
+      <div style="margin-top:1rem;">© 2026 Forge Directory</div>
+    </div>
+  </footer>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

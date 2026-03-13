@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Manufacturer — ForgeAPI.io</title>
+    <meta name="description" content="Submit a manufacturing API to the ForgeAPI.io directory. Free listings for all public APIs.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Plausible Analytics -->
+    <script defer data-domain="forgeapi.io" src="https://plausible.io/js/script.outbound-links.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+            </a>
+            <p class="tagline">The API Directory for On-Demand Manufacturing</p>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Directory</a>
+                <a href="submit.html" class="nav-link active">Submit</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Submit Hero -->
+    <section class="submit-hero">
+        <div class="container">
+            <h1>Submit a Manufacturing API</h1>
+            <p>Help developers discover your manufacturing API. Free listings for all public APIs.</p>
+        </div>
+    </section>
+
+    <!-- Submission Form -->
+    <section class="submit-section">
+        <div class="container">
+            <div class="submit-grid">
+                
+                <!-- Form -->
+                <div class="submit-form-container">
+                    <form id="submitForm" class="submit-form">
+                        
+                        <div class="form-group">
+                            <label for="companyName">Company Name *</label>
+                            <input type="text" id="companyName" name="companyName" required placeholder="e.g., Shapeways">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="websiteUrl">Website URL *</label>
+                            <input type="url" id="websiteUrl" name="websiteUrl" required placeholder="https://example.com">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apiDocsUrl">API Documentation URL *</label>
+                            <input type="url" id="apiDocsUrl" name="apiDocsUrl" required placeholder="https://developers.example.com">
+                            <span class="form-hint">Link to your public API documentation</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Manufacturing Processes *</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="3d-printing">
+                                    <span class="checkbox-text">3D Printing</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="cnc-machining">
+                                    <span class="checkbox-text">CNC Machining</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="laser-cutting">
+                                    <span class="checkbox-text">Laser Cutting</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="injection-molding">
+                                    <span class="checkbox-text">Injection Molding</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="sheet-metal">
+                                    <span class="checkbox-text">Sheet Metal</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="casting">
+                                    <span class="checkbox-text">Casting</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="print-on-demand">
+                                    <span class="checkbox-text">Print-on-Demand</span>
+                                </label>
+                                <label class="checkbox-label">
+                                    <input type="checkbox" name="processes" value="multi-process">
+                                    <span class="checkbox-text">Multi-Process</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="apiStatus">API Status *</label>
+                            <select id="apiStatus" name="apiStatus" required>
+                                <option value="">Select API status...</option>
+                                <option value="public">Public (Self-serve signup)</option>
+                                <option value="enterprise">Enterprise (Contact sales)</option>
+                                <option value="beta">Beta / Early Access</option>
+                                <option value="unknown">Unknown / Not specified</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description *</label>
+                            <textarea id="description" name="description" rows="4" required placeholder="Briefly describe your manufacturing service and API capabilities..."></textarea>
+                            <span class="form-hint">What makes your API unique? What use cases is it best for?</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Your Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="you@company.com">
+                            <span class="form-hint">We'll notify you when your listing is approved</span>
+                        </div>
+
+                        <div class="form-group form-checkboxes">
+                            <label class="checkbox-label checkbox-label-inline">
+                                <input type="checkbox" name="isPublic" required>
+                                <span class="checkbox-text">I confirm this API is publicly available *</span>
+                            </label>
+                            <label class="checkbox-label checkbox-label-inline">
+                                <input type="checkbox" name="isAuthorized" required>
+                                <span class="checkbox-text">I'm authorized to submit this listing *</span>
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-large">Submit for Review</button>
+                    </form>
+
+                    <!-- Success State (Hidden by default) -->
+                    <div id="successState" class="success-state" style="display: none;">
+                        <div class="success-icon">✓</div>
+                        <h2>Submission Received!</h2>
+                        <p>Thank you for submitting your manufacturing API. We'll review your listing and notify you at <span id="submittedEmail"></span> within 48 hours.</p>
+                        <div class="success-actions">
+                            <a href="index.html" class="btn btn-secondary">Browse Directory</a>
+                            <a href="submit.html" class="btn btn-primary" onclick="resetForm()">Submit Another</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="submit-sidebar">
+                    
+                    <div class="sidebar-card">
+                        <h3>Free Submission</h3>
+                        <ul class="feature-list">
+                            <li>✓ Basic company information</li>
+                            <li>✓ API status and documentation link</li>
+                            <li>✓ Standard placement in directory</li>
+                            <li>✓ Listed within 48 hours</li>
+                        </ul>
+                    </div>
+
+                    <div class="sidebar-card sidebar-card-featured">
+                        <div class="featured-badge">⭐ FEATURED</div>
+                        <h3>Featured Listing — £99/month</h3>
+                        <ul class="feature-list">
+                            <li>✓ Top placement in search results</li>
+                            <li>✓ "⭐ Featured" badge on listing</li>
+                            <li>✓ "Get API Key" CTA button</li>
+                            <li>✓ Detailed API documentation section</li>
+                            <li>✓ Code examples and SDK info</li>
+                            <li>✓ Monthly analytics dashboard</li>
+                            <li>✓ Priority support for updates</li>
+                        </ul>
+                        <button class="btn btn-accent btn-full" onclick="showToast('Coming soon!')">Get Featured →</button>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <h3>What happens next?</h3>
+                        <ol class="process-list">
+                            <li><strong>1. Review</strong> — We verify API availability and documentation</li>
+                            <li><strong>2. Approval</strong> — Listing goes live (usually within 48 hours)</li>
+                            <li><strong>3. Promotion</strong> — New APIs featured in our newsletter</li>
+                        </ol>
+                    </div>
+
+                    <div class="sidebar-card sidebar-card-help">
+                        <h3>Need help?</h3>
+                        <p>Contact us at <a href="mailto:hello@forgeapi.io">hello@forgeapi.io</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <span class="logo-icon">⚡</span>
+                        <span class="logo-text">ForgeAPI<span class="logo-dot">.io</span></span>
+                    </a>
+                    <p class="footer-tagline">The API Directory for On-Demand Manufacturing</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Directory</h4>
+                    <a href="index.html">All APIs</a>
+                    <a href="index.html">3D Printing</a>
+                    <a href="index.html">CNC Machining</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Contribute</h4>
+                    <a href="submit.html">Submit Manufacturer</a>
+                    <a href="#">Claim Listing</a>
+                    <a href="#">API Corrections</a>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Get new manufacturing APIs in your inbox.</p>
+                    <form class="newsletter-form" id="newsletterForm">
+                        <input type="email" placeholder="email@example.com" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ForgeAPI.io — Connecting code to factories.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message">Message</span>
+    </div>
+
+    <script src="script.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>

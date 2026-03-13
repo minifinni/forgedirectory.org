@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5 Manufacturing APIs Every Small Factory Should Know in 2025 | Forge Directory</title>
+  <meta name="description" content="5 Manufacturing APIs Every Small Factory Should Know in 2025" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    .blog-post { max-width: 760px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+    .post-label { font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; color: #666; margin-bottom: 1rem; }
+    .post-title { font-size: clamp(1.75rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1rem; color: var(--text-primary); }
+    .post-meta { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; }
+    .post-meta .tag { background: var(--accent-muted); color: var(--accent); padding: 2px 8px; border-radius: 4px; font-size: 0.75rem; margin-left: 4px; }
+    .post-body h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--text-primary); border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+    .post-body h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--accent); }
+    .post-body p { margin-bottom: 1.25rem; line-height: 1.75; color: var(--text-secondary); }
+    .post-body ul, .post-body ol { margin: 0 0 1.25rem 1.5rem; }
+    .post-body li { margin-bottom: 0.5rem; line-height: 1.6; color: var(--text-secondary); }
+    .post-body blockquote { border-left: 3px solid var(--accent); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--bg-card); border-radius: 0 4px 4px 0; }
+    .post-body code { background: var(--bg-card); padding: 2px 6px; border-radius: 3px; font-family: var(--font-mono); font-size: 0.875em; color: var(--accent); }
+    .post-body strong { color: var(--text-primary); font-weight: 600; }
+    .post-cta { background: var(--bg-card); border: 1px solid var(--border); padding: 2rem; margin-top: 3rem; border-radius: var(--radius-lg); text-align: center; }
+    .post-cta h3 { font-size: 1.25rem; margin-bottom: 0.5rem; }
+    .post-cta p { color: var(--text-muted); margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .post-cta a { display: inline-block; background: var(--accent); color: #000; padding: 0.75rem 1.75rem; font-weight: 600; border-radius: var(--radius-md); }
+    .back-link { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 2rem; display: block; }
+    .back-link:hover { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="/" class="logo">Forge<span style="color:var(--accent)">.</span></a>
+        <nav style="display:flex;gap:1.5rem;align-items:center;">
+          <a href="/" style="color:var(--text-secondary);font-size:0.9rem;">Directory</a>
+          <a href="/blog/" style="color:var(--text-secondary);font-size:0.9rem;">Blog</a>
+          <a href="/submit.html" style="background:var(--accent);color:#000;padding:0.4rem 1rem;border-radius:6px;font-size:0.875rem;font-weight:600;">Submit API</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+  <article class="blog-post">
+    <a href="/blog/" class="back-link">← All Posts</a>
+    <div class="post-label">/ Blog</div>
+    <h1 class="post-title">5 Manufacturing APIs Every Small Factory Should Know in 2025</h1>
+    <div class="post-meta">2026-03-03 &nbsp;·&nbsp; manufacturing, APIs, ERP, MES, inventory, small-factory, 2025</div>
+    <div class="post-body">
+<p>
+# 5 Manufacturing APIs Every Small Factory Should Know in 2025
+</p>
+<p>
+Running a small factory means juggling production schedules, inventory levels, quality checks, and customer orders—often with a lean team. The right APIs can automate the busywork, reduce errors, and give you real-time visibility into your operations without the enterprise price tag.
+</p>
+<p>
+Here are five manufacturing APIs that deliver outsized value for small-to-mid-sized manufacturers in 2025.
+</p>
+<h2>1. Katana — Manufacturing ERP for Small Businesses</h2>
+<p>
+<strong>What it does:</strong> Katana is purpose-built for small manufacturers. It connects your sales, production, and inventory in one platform, with strong API support for custom integrations.
+</p>
+<p>
+<strong>Key API capabilities:</strong>
+</p>
+<ul>
+<li>Sync sales orders from Shopify, WooCommerce, or custom storefronts</li>
+<li>Update inventory levels in real-time</li>
+<li>Trigger purchase orders when raw materials hit reorder points</li>
+<li>Pull production schedules and resource availability</li>
+</ul>
+<p>
+<strong>Pricing:</strong>
+</p>
+<ul>
+<li>Essential: $99/month (up to 3 users, 1 warehouse)</li>
+<li>Advanced: $299/month (unlimited users, 5 warehouses, API access)</li>
+<li>Professional: $799/month (unlimited everything, advanced API features)</li>
+</ul>
+<p>
+<strong>Code example — Fetch inventory levels:</strong>
+ 
+<code>`</code>javascript
+ 
+const response = await fetch('https://api.katanamrp.com/v1/inventory', {
+ 
+method: 'GET',
+ 
+headers: {
+ 
+'Authorization': 'Bearer YOUR_API_KEY',
+ 
+'Content-Type': 'application/json'
+ 
+}
+ 
+});
+</p>
+<p>
+const inventory = await response.json();
+ 
+console.log(<code>Raw materials on hand: ${inventory.raw_materials.quantity}</code>);
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Best for:</strong> Small factories making 50-500 units/month that need a lightweight alternative to NetSuite or SAP.
+</p>
+<h2>2. Tulip — Frontline Operations Platform (MES)</h2>
+<p>
+<strong>What it does:</strong> Tulip lets you build shop-floor apps without code. Their API connects these apps to your backend systems, turning operator workflows into data pipelines.
+</p>
+<p>
+<strong>Key API capabilities:</strong>
+</p>
+<ul>
+<li>Create digital work instructions with real-time data</li>
+<li>Collect quality data from connected devices</li>
+<li>Trigger maintenance alerts based on machine telemetry</li>
+<li>Integrate with ERPs for work order management</li>
+</ul>
+<p>
+<strong>Pricing:</strong>
+</p>
+<ul>
+<li>No public pricing; contact sales for quotes</li>
+<li>Typical range: $200-500/month per station for small deployments</li>
+</ul>
+<p>
+<strong>Code example — Log a defect from your app:</strong>
+ 
+<code>`</code>python
+ 
+import requests
+</p>
+<p>
+defect_data = {
+ 
+"station_id": "assembly_line_3",
+ 
+"defect_type": "dimensional_tolerance",
+ 
+"severity": "high",
+ 
+"timestamp": "2025-03-03T14:30:00Z",
+ 
+"operator_id": "OP-001",
+ 
+"work_order": "WO-2025-0034"
+ 
+}
+</p>
+<p>
+response = requests.post(
+ 
+'https://api.tulip.co/v2/tables/defects/records',
+ 
+headers={'Authorization': 'Bearer YOUR_API_KEY'},
+ 
+json=defect_data
+ 
+)
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Best for:</strong> Factories digitizing paper processes on the shop floor without IT overhead.
+</p>
+<h2>3. Fishbowl Inventory — Small Business Inventory Management</h2>
+<p>
+<strong>What it does:</strong> Fishbowl sits between QuickBooks/Xero and your warehouse. It handles multi-location inventory, manufacturing BOMs, and order fulfillment with a straightforward API.
+</p>
+<p>
+<strong>Key API capabilities:</strong>
+</p>
+<ul>
+<li>Real-time inventory across multiple warehouses</li>
+<li>Manufacturing order creation from sales orders</li>
+<li>Lot/serial number tracking</li>
+<li>QuickBooks/Xero sync</li>
+</ul>
+<p>
+<strong>Pricing:</strong>
+</p>
+<ul>
+<li>Fishbowl Drive (cloud): $329/month (includes API)</li>
+<li>Fishbowl Advanced: $329/month + $2,995 one-time license</li>
+</ul>
+<p>
+<strong>Code example — Check available-to-promise inventory:</strong>
+ 
+<code>`</code>javascript
+ 
+const checkAvailability = async (sku) => {
+ 
+const response = await fetch(<code>https://api.fishbowl.com/inventory/availability?sku=${sku}</code>, {
+ 
+headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+ 
+});
+</p>
+<p>
+const data = await response.json();
+ 
+return {
+ 
+onHand: data.quantity_on_hand,
+ 
+committed: data.quantity_committed,
+ 
+available: data.quantity_available
+ 
+};
+ 
+};
+</p>
+<p>
+// Usage
+ 
+const widgetAvailability = await checkAvailability('WIDGET-001');
+ 
+console.log(<code>Can fulfill ${widgetAvailability.available} units</code>);
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Best for:</strong> Small manufacturers already using QuickBooks who need manufacturing-specific inventory features.
+</p>
+<h2>4. Fulcrum — Quality Management API</h2>
+<p>
+<strong>What it does:</strong> Fulcrum helps you digitize quality inspections and compliance documentation. Their API lets you push inspection data into your ERP or trigger alerts when non-conformances occur.
+</p>
+<p>
+<strong>Key API capabilities:</strong>
+</p>
+<ul>
+<li>Custom inspection forms via API</li>
+<li>Photo and signature capture</li>
+<li>Non-conformance report (NCR) generation</li>
+<li>Integration with corrective action workflows</li>
+</ul>
+<p>
+<strong>Pricing:</strong>
+</p>
+<ul>
+<li>Team: $15/user/month (API included)</li>
+<li>Business: $33/user/month (advanced API, webhooks)</li>
+<li>Platform: Custom pricing for high-volume API usage</li>
+</ul>
+<p>
+<strong>Code example — Create an inspection record:</strong>
+ 
+<code>`</code>python
+ 
+import requests
+</p>
+<p>
+inspection = {
+ 
+"form_id": "final_qc_check",
+ 
+"record": {
+ 
+"work_order": "WO-2025-0034",
+ 
+"product": "BRACKET-V2",
+ 
+"quantity_inspected": 100,
+ 
+"quantity_passed": 97,
+ 
+"quantity_failed": 3,
+ 
+"defects": ["surface_scratch", "dimension_out_of_spec"],
+ 
+"inspector": "J. Smith",
+ 
+"location": {"latitude": 40.7128, "longitude": -74.0060}
+ 
+}
+ 
+}
+</p>
+<p>
+response = requests.post(
+ 
+'https://api.fulcrumapp.com/api/v2/records.json',
+ 
+headers={
+ 
+'X-ApiToken': 'YOUR_API_KEY',
+ 
+'Content-Type': 'application/json'
+ 
+},
+ 
+json=inspection
+ 
+)
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Best for:</strong> Manufacturers needing ISO 9001 or AS9100 compliance without enterprise QMS complexity.
+</p>
+<h2>5. MachineMetrics — Manufacturing Analytics (IoT + API)</h2>
+<p>
+<strong>What it does:</strong> MachineMetrics connects to your CNC machines, PLCs, and sensors to track OEE, downtime, and production rates. Their API makes this data available to your other systems.
+</p>
+<p>
+<strong>Key API capabilities:</strong>
+</p>
+<ul>
+<li>Machine status and utilization data</li>
+<li>Downtime categorization and alerts</li>
+<li>OEE calculation and trending</li>
+<li>Integration with maintenance systems</li>
+</ul>
+<p>
+<strong>Pricing:</strong>
+</p>
+<ul>
+<li>Starting at $150-300/month per machine</li>
+<li>API access included in all tiers</li>
+</ul>
+<p>
+<strong>Code example — Get machine utilization for a shift:</strong>
+ 
+<code>`</code>javascript
+ 
+const getMachineOEE = async (machineId, startTime, endTime) => {
+ 
+const params = new URLSearchParams({
+ 
+machine_id: machineId,
+ 
+start: startTime,
+ 
+end: endTime
+ 
+});
+</p>
+<p>
+const response = await fetch(<code>https://api.machinemetrics.com/v1/analytics/oee?${params}</code>, {
+ 
+headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+ 
+});
+</p>
+<p>
+return await response.json();
+ 
+};
+</p>
+<p>
+// Get yesterday's OEE for Machine 001
+ 
+const oeeData = await getMachineOEE(
+ 
+'MACHINE-001',
+ 
+'2025-03-02T06:00:00Z',
+ 
+'2025-03-02T14:00:00Z'
+ 
+);
+</p>
+<p>
+console.log(<code>Availability: ${oeeData.availability}%</code>);
+ 
+console.log(<code>Performance: ${oeeData.performance}%</code>);
+ 
+console.log(<code>Quality: ${oeeData.quality}%</code>);
+ 
+console.log(<code>OEE: ${oeeData.oee}%</code>);
+ 
+<code>`</code>
+</p>
+<p>
+<strong>Best for:</strong> Job shops and contract manufacturers looking to improve machine utilization without expensive SCADA systems.
+</p>
+<h2>Choosing the Right Mix</h2>
+<p>
+You don't need all five APIs on day one. Start with your biggest pain point:
+</p>
+<ul>
+<li><strong>Inventory chaos?</strong> → Katana or Fishbowl</li>
+<li><strong>Paper travelers and work instructions?</strong> → Tulip</li>
+<li><strong>Quality escapes hitting customers?</strong> → Fulcrum</li>
+<li><strong>Machines sitting idle?</strong> → MachineMetrics</li>
+<li><strong>Manual data entry between systems?</strong> → Start with your ERP's API and build from there</li>
+</ul>
+<p>
+Most of these APIs use REST with JSON and OAuth2 authentication, so your developer (or integrator) can connect them without specialized manufacturing protocols.
+</p>
+<h2>Next Steps</h2>
+<ol>
+<li><strong>Audit your current tools</strong> — Do they have APIs? Most modern systems do.</li>
+<li><strong>Identify one integration</strong> — What's the manual process you hate most?</li>
+<li><strong>Start small</strong> — Connect two systems first, then expand.</li>
+<li><strong>Monitor usage</strong> — Most APIs charge by volume; track your calls.</li>
+</ol>
+<p>
+The factories winning in 2025 aren't necessarily the ones with the biggest budgets. They're the ones connecting their systems to eliminate busywork and make better decisions with real data.
+</p>
+<p>
+Want to explore these APIs in depth? Check the <a href="https://forgedirectory.org">ForgeDirectory API listings</a> for detailed endpoints, authentication guides, and integration patterns.
+</p>
+    </div>
+    <div class="post-cta">
+      <h3>Find the right manufacturing API</h3>
+      <p>Browse our directory of vetted manufacturing APIs. Filter by category, integration type, and pricing.</p>
+      <a href="/">Browse Directory</a>
+    </div>
+  </article>
+  <footer style="border-top:1px solid var(--border);padding:2rem 0;text-align:center;color:var(--text-muted);font-size:0.85rem;margin-top:4rem;">
+    <div class="container">
+      <a href="/" style="color:var(--accent);font-weight:600;margin-right:1.5rem;">Forge Directory</a>
+      <a href="/blog/" style="color:var(--text-muted);margin-right:1.5rem;">Blog</a>
+      <a href="/submit.html" style="color:var(--text-muted);">Submit</a>
+      <div style="margin-top:1rem;">© 2026 Forge Directory</div>
+    </div>
+  </footer>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
